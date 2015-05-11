@@ -1,0 +1,74 @@
+
+<head>
+	<meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+	<meta content="utf-8" http-equiv="encoding">
+</head>
+
+<link rel="stylesheet" type="text/css" href="../styles/style.css">    
+
+
+<script type="text/ng-template"  id="tree_subitems.html">
+
+	{{level.name}}
+	
+	<ul ng-if="level.subitems">
+		<li class="subitems" ng-repeat="level in level.subitems" ng-include="'tree_subitems.html'" class="" ng-search >
+		</li>
+	</ul>
+
+</script>
+
+<script type="text/ng-template"  id="tree_products.html">
+
+	{{level.name}}
+	
+	<ul ng-if="level.subitems">
+		<li class="subitems" ng-repeat="level in level.subitems" ng-include="'tree_subitems.html'" class="" ng-search >
+		</li>
+	</ul>
+
+	<ul ng-if="level.products">
+		<li class="products" ng-repeat="level in level.products" ng-include="'tree_products.html'" class="" ng-search >
+		</li>
+	</ul>
+
+</script>			
+
+<script type="text/ng-template"  id="tree_categories.html">
+
+	{{level.name}}
+	
+	<ul ng-if="level.products">
+		<li class="products" ng-repeat="level in level.products" ng-include="'tree_products.html'" class="" ng-search >
+		</li>
+	</ul>
+
+	<ul ng-if="level.categories">
+		<li class="categories" ng-repeat="level in level.categories" ng-include="'tree_categories.html'" class="subcatspacing" ng-search >
+		</li>		
+	</ul>	
+
+</script>
+
+<html ng-app="SearchApp">
+	<div ng-controller="SearchAppController">
+		
+		<div class="">
+				<input type="text" id="search" placeholder="search" ng-model="searchstring" ng-change="searchmap(searchstring)">
+				<ul>
+					<li ng-repeat="level in tree.categories" ng-include="'tree_categories.html'" class="catspacing" ng-search >
+					</li>
+				</ul>
+		</div>
+
+	</div>
+</html>
+
+
+<script type="text/javascript" src="../lib/angular.min.js"></script> 
+
+<script type="text/javascript" src="../data/dummyData.json"></script> 
+
+<script type="text/javascript" src="../controllers/searchDirective.js"></script> 
+
+
