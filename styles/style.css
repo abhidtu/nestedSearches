@@ -1,0 +1,24 @@
+	.catspacing{
+	    padding-top: 30px;
+	    border: 1px solid;
+	    padding-bottom: 12px;
+	    margin-bottom: 12px;
+	    width: inherit;
+	}
+	.subcatspacing{
+	    padding-top: 8px;
+	    width: inherit;
+	}
+	.rightshift{
+		margin-left: 30px;
+	}
+	div{
+		font-size: 12px;
+	}
+	ul{
+		list-style: none;
+	}
+	li{
+		width: auto;
+	}
+ 
